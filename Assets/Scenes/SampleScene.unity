@@ -13461,6 +13461,7 @@ MonoBehaviour:
   missPrefab: {fileID: 3726382976442192716, guid: d2a4c506215264440b6542ec6081e392, type: 3}
   audioSource: {fileID: 353953240}
   clip: {fileID: 8300000, guid: 6d19ef14fc98de14eae2854d7bfca8a5, type: 3}
+  cashMissedPossitions: []
 --- !u!65 &1091819479
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -67,6 +67,8 @@
     <Compile Include="Assets\Scripts\ShipCount.cs" />
     <Compile Include="Assets\Scripts\ShipRotate.cs" />
     <Compile Include="Assets\Scripts\BotTrigger.cs" />
+    <Compile Include="Assets\Scripts\SwitchManager.cs" />
+    <Compile Include="Assets\Scripts\BotShoot.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
