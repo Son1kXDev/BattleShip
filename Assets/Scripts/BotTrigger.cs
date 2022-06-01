@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BotTrigger : MonoBehaviour
 {
-    [SerializeField] private Bot parent;
+    [SerializeField] private BotShip parent;
     [SerializeField] int triggerNumber;
 
     private void OnMouseDown()

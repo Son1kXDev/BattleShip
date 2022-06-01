@@ -5,27 +5,27 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637889109117888591
-    m_Hash: 2116056428
+      ticks: 637896727265457043
+    m_Hash: 228985270
   m_LockFileStatus:
     m_FilePath: I:/BattleShip/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637889109301008036
-    m_Hash: 2855888123
+      ticks: 637896727316488387
+    m_Hash: 1587512919
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
   m_Packages:
     m_ResolvedPackages:
-    - packageId: com.unity.collab-proxy@1.15.18
+    - packageId: com.unity.collab-proxy@1.15.12
       testable: 0
       isDirectDependency: 1
-      version: 1.15.18
+      version: 1.15.12
       source: 1
-      resolvedPath: I:\BattleShip\Library\PackageCache\com.unity.collab-proxy@1.15.18
+      resolvedPath: I:\BattleShip\Library\PackageCache\com.unity.collab-proxy@1.15.12
       assetPath: Packages/com.unity.collab-proxy
       name: com.unity.collab-proxy
       displayName: Version Control
@@ -152,13 +152,13 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 637888962690000000
+      datePublishedTicks: 637789721280000000
       documentationUrl: 
       hasRepository: 1
       repository:
         type: git
         url: https://github.cds.internal.unity3d.com/unity/com.unity.cloud.collaborate.git
-        revision: 611215dcd30048fa921b4be160048bad4022d65f
+        revision: 5ca1fd4ca9f999e087d19e98afaf99905a582771
         path: 
     - packageId: com.unity.ide.rider@2.0.7
       testable: 0

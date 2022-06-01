@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class MissTrigger : MonoBehaviour
 {
-    [SerializeField] GameObject missPrefab;
-    [SerializeField] AudioSource audioSource;
-    [SerializeField] AudioClip clip;
+    [SerializeField] private GameObject missPrefab;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip clip;
 
-    Camera mainCamera;
-    [SerializeField] List<GameObject> cashMissedPossitions = new List<GameObject>();
+    private Camera mainCamera;
+    [SerializeField] private List<Vector3> cashMissedPossitions = new List<Vector3>();
 
     private void Start()
     {
         mainCamera = Camera.main;
-        cashMissedPossitions = new List<GameObject>();
     }
 
     private void OnMouseDown()
@@ -30,21 +29,25 @@ public class MissTrigger : MonoBehaviour
 
             Vector3 spawnPos = new Vector3(x, 0, y);
 
-            //это не работает!!! ИСПРАВИТЬ!!!
+            bool available = true;
 
-            if (cashMissedPossitions.Count <= 0) Spawn(spawnPos);
+            if (cashMissedPossitions.Count <= 0) available = true; ;
             for (int i = 0; i < cashMissedPossitions.Count; i++)
             {
-                if (cashMissedPossitions[i].transform.position == spawnPos) break;
-                else Spawn(spawnPos); break;
+                if (cashMissedPossitions[i] == spawnPos)
+                {
+                    available = false;
+                }
             }
+            if (available) Spawn(spawnPos);
         }
-     }
+    }
 
-    void Spawn(Vector3 spawnPos)
+    private void Spawn(Vector3 spawnPos)
     {
-        GameObject missHit = Instantiate(missPrefab, spawnPos, Quaternion.identity);
-        cashMissedPossitions.Add(missHit);
+        Instantiate(missPrefab, spawnPos, Quaternion.identity);
+        cashMissedPossitions.Add(spawnPos);
         audioSource.PlayOneShot(clip);
+        SwitchManager._switch.SwitchPlayer();
     }
 }

@@ -11,26 +11,24 @@ public class Ship : MonoBehaviour
     public int rotateState = 0;
 
     [Range(1, 4)] public int type = 1;
+    [SerializeField] private int health;
 
-    public void SetTransparent(bool available)
+    private void Awake()
     {
-        MainRenderer.material.color = available ? Color.green : Color.red;
+        health = type;
     }
 
-    public void SetNormal()
-    {
-        MainRenderer.material.color = Color.white;
-    }
+    public void SetTransparent(bool available) => MainRenderer.material.color = available ? Color.green : Color.red;
 
-    private void OnDrawGizmosSelected()
+    public void SetNormal() => MainRenderer.material.color = Color.white;
+
+    public void GetHit()
     {
-        for (int x = 0; x < Size.x; x++)
+        health--;
+        if (health == 0)
         {
-            for (int y = 0; y < Size.y; y++)
-            {
-                Gizmos.color = new Color(0, 0, 1, 0.3f);
-                Gizmos.DrawCube(transform.position + new Vector3(x, 0, y), new Vector3(1, .1f, 1));
-            }
+            Bot.bot.cashedPos = Vector3.zero;
+            Destroy(this);
         }
     }
 }

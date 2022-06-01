@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdb3db65399c2104ab99f126b4ee2cd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 2264826091934096593}
+  parent: {fileID: 2114202621455961886}
   triggerNumber: 1
 --- !u!1 &4280379377281845235
 GameObject:
@@ -210,7 +210,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5758479921398329451}
-  - component: {fileID: 2264826091934096593}
+  - component: {fileID: 2114202621455961886}
   m_Layer: 0
   m_Name: BotShip 2
   m_TagString: Untagged
@@ -237,7 +237,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2264826091934096593
+--- !u!114 &2114202621455961886
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -246,7 +246,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5758479921398329444}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 574b17ef68c129f4f93ef739bb1e11e7, type: 3}
+  m_Script: {fileID: 11500000, guid: dc83583cb70b2454ab6ab9ba6be58530, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TriggersCount: 2
@@ -370,7 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdb3db65399c2104ab99f126b4ee2cd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 2264826091934096593}
+  parent: {fileID: 2114202621455961886}
   triggerNumber: 2
 --- !u!1001 &9593267865668877
 PrefabInstance:

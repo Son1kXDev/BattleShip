@@ -6,14 +6,13 @@ public class Bot : MonoBehaviour
 {
     public static Bot bot;
 
-    [SerializeField, Range(1, 4)] private int TriggersCount;
-    [SerializeField] private Transform[] HitPoints;
-    [SerializeField] private GameObject hitPrefab;
-    [SerializeField] private Renderer model;
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip[] hitClips;
-    [SerializeField] private AudioClip killClip;
-    [Space(5), SerializeField] private GameObject shootPrefab;
+    public Vector3 cashedPos;
+
+    [SerializeField] private GameObject shootPrefab;
+
+    [SerializeField] private List<Vector3> cashPossitions = new List<Vector3>();
+
+    private Vector3 spawnPossition;
 
     private void Awake()
     {
@@ -21,26 +20,22 @@ public class Bot : MonoBehaviour
         else bot = this;
     }
 
-    private void Start()
-    {
-        audioSource = GameObject.FindGameObjectWithTag("effectAudioSource").GetComponent<AudioSource>();
-    }
-
-    public void GetHit(int TriggerNumber)
-    {
-        TriggersCount--;
-        print(TriggersCount);
-        Instantiate(hitPrefab, HitPoints[TriggerNumber - 1]);
-        if (TriggersCount == 0)
-        {
-            model.enabled = true;
-            model.material.color = new Color(0.3f, 0.3f, 0.3f, 1);
-            audioSource.PlayOneShot(killClip);
-        }
-        else audioSource.PlayOneShot(hitClips[Random.Range(0, hitClips.Length)]);
-    }
-
     public void DidHit()
+    {
+        float waitTime = Random.Range(3, 7);
+        StartCoroutine(Shoot(waitTime));
+    }
+
+    private IEnumerator Shoot(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+
+        spawnPossition = spawnPos();
+
+        if (Check(spawnPossition)) Instantiate(shootPrefab, spawnPossition, Quaternion.identity);
+    }
+
+    private Vector3 spawnPos()
     {
         float startX = 10f;
         float endX = 90f;
@@ -50,16 +45,71 @@ public class Bot : MonoBehaviour
         int x = Mathf.RoundToInt(Random.Range(startX, endX) / 10) * 10;
         int z = Mathf.RoundToInt(Random.Range(startZ, endZ) / 10) * 10;
 
-        Vector3 spawnPos = new Vector3(x, 0, z);
-        Instantiate(shootPrefab, spawnPos, Quaternion.identity);
+        if (cashedPos != Vector3.zero)
+        {
+            return closeShot(cashedPos);
+        }
+
+        return new Vector3(x, 10, z);
     }
 
-    public void DidCloseHit(Vector3 hitPos)
+    private bool Check(Vector3 sPos)
     {
-        int x = Mathf.RoundToInt(Random.Range(hitPos.x - 10, hitPos.x + 10) / 10) * 10;
-        int z = Mathf.RoundToInt(Random.Range(hitPos.z - 10, hitPos.z + 10) / 10) * 10;
+        if (cashPossitions.Count <= 0)
+        {
+            cashPossitions.Add(sPos); return true;
+        }
+        for (int i = 0; i < cashPossitions.Count; i++)
+        {
+            if (cashPossitions[i].x == sPos.x && cashPossitions[i].z == sPos.z)
+            {
+                spawnPossition = spawnPos();
+                return Check(spawnPossition);
+            }
+        }
+        cashPossitions.Add(sPos);
+        return true;
+    }
 
-        Vector3 spawnPos = new Vector3(x, 0, z);
-        Instantiate(shootPrefab, spawnPos, Quaternion.identity);
+    private Vector3 closeShot(Vector3 hitPos)
+    {
+        int xorz = Random.Range(1, 3);
+        int x = Random.Range(1, 3);
+        int z = Random.Range(1, 3);
+
+        switch (xorz)
+        {
+            case 1:
+                switch (x)
+                {
+                    case 1:
+                        x = Mathf.RoundToInt(Random.Range(hitPos.x - 10, hitPos.x - 20) / 10) * 10;
+                        z = Mathf.RoundToInt(hitPos.z);
+                        break;
+
+                    case 2:
+                        x = Mathf.RoundToInt(Random.Range(hitPos.x + 10, hitPos.x + 20) / 10) * 10;
+                        z = Mathf.RoundToInt(hitPos.z);
+                        break;
+                }
+                break;
+
+            case 2:
+                switch (z)
+                {
+                    case 1:
+                        z = Mathf.RoundToInt(Random.Range(hitPos.z - 10, hitPos.z - 20) / 10) * 10;
+                        x = Mathf.RoundToInt(hitPos.x);
+                        break;
+
+                    case 2:
+                        z = Mathf.RoundToInt(Random.Range(hitPos.z + 10, hitPos.z + 20) / 10) * 10;
+                        x = Mathf.RoundToInt(hitPos.x);
+                        break;
+                }
+                break;
+        }
+
+        return new Vector3(x, 10, z);
     }
 }

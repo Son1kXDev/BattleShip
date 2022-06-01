@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdb3db65399c2104ab99f126b4ee2cd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 2629191681048299451}
+  parent: {fileID: 4791189618873313525}
   triggerNumber: 2
 --- !u!1 &3441293124967440783
 GameObject:
@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdb3db65399c2104ab99f126b4ee2cd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 2629191681048299451}
+  parent: {fileID: 4791189618873313525}
   triggerNumber: 1
 --- !u!1 &3729560435936095349
 GameObject:
@@ -418,7 +418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdb3db65399c2104ab99f126b4ee2cd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 2629191681048299451}
+  parent: {fileID: 4791189618873313525}
   triggerNumber: 3
 --- !u!1 &6851614902774381727
 GameObject:
@@ -528,7 +528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdb3db65399c2104ab99f126b4ee2cd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parent: {fileID: 2629191681048299451}
+  parent: {fileID: 4791189618873313525}
   triggerNumber: 4
 --- !u!1 &7672817176207512920
 GameObject:
@@ -539,7 +539,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7672817176207512903}
-  - component: {fileID: 2629191681048299451}
+  - component: {fileID: 4791189618873313525}
   m_Layer: 0
   m_Name: BotShip 4
   m_TagString: Untagged
@@ -570,7 +570,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2629191681048299451
+--- !u!114 &4791189618873313525
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -579,7 +579,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7672817176207512920}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 574b17ef68c129f4f93ef739bb1e11e7, type: 3}
+  m_Script: {fileID: 11500000, guid: dc83583cb70b2454ab6ab9ba6be58530, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   TriggersCount: 4
